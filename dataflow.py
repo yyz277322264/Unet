@@ -35,7 +35,7 @@ class DataLoader():
             H = np.random.random()*(h-img_H)
             W = np.random.random()*(w-img_W)
 
-            box = (H, W, H+img_H, W+img_W)
+            box = (W, H, W+img_W, H+img_H)
 
             image = np.array(image.crop(box), dtype=float)
             image = np.reshape(image, (img_H, img_W, 3))
@@ -90,8 +90,8 @@ class DataLoader():
                 H = int(np.random.random() * (h - img_H))
                 W = int(np.random.random() * (w - img_W))
 
-                box = (H, W, H + img_H, W + img_W)
-
+                # box = (H, W, H + img_H, W + img_W)
+                box = (W, H, W + img_W, H + img_H)
                 image = np.array(image.crop(box),dtype=float)
                 image = np.reshape(image, (img_H, img_W, 3))
                 t = np.random.random()
